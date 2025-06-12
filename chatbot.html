@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DigiBuddy! – Digital Chatbot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Google Fonts and Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+  <!-- Dialogflow Messenger -->
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #fce4ec);
+      min-height: 100vh;
+    }
+
+    /* Fixed Header and Navbar */
+    /* Styling the navbar */
+/* Fixed Top Group */
+    .fixed-top-group {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .top-header {
+      background-color: #6a1b9a;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;
+      font-size: 14px;
+    }
+
+    nav {
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav .tagline {
+      font-size: 20px;
+      font-weight: bold;
+      color: #f06292;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #6a1b9a;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      color: #f06292;
+    }
+
+    nav ul li a i {
+      margin-right: 6px;
+    }
+
+    /* Responsive nav */
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+    }
+
+    /* Dialogflow Chatbot Default Position (bottom-right) */
+    df-messenger {
+      z-index: 9999;
+      --df-messenger-button-titlebar-color: #6a1b9a;
+      --df-messenger-chat-background-color: #ffffff;
+      --df-messenger-font-color: #000000;
+      --df-messenger-user-message: #e1f5fe;
+      --df-messenger-bot-message: #f3e5f5;
+      --df-messenger-send-icon: #6a1b9a;
+      --df-messenger-input-box-color: #fafafa;
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header + Navbar -->
+ <div class="fixed-top-group">
+    <div class="top-header"><i class="fas fa-university me-2"></i> CollegeTips.in</div>
+    <nav>
+      <div class="tagline">Empowering Digital Literacy</div>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="tutorials.html"><i class="fas fa-chalkboard-teacher"></i> Tutorials</a></li>
+        <li><a href="chatbot.html"><i class="fas fa-robot"></i> AI Chat</a></li>
+        <li><a href="feedback.html"><i class="fas fa-comment-alt"></i> Feedback</a></li>
+      </ul>
+    </nav>
+  </div>
+
+
+  <!-- Dialogflow Chatbot (default button at bottom-right) -->
+  <df-messenger
+    chat-title="DigiBuddy!"
+    agent-id="b86fd81b-e46c-44b9-85c0-53fecd24b490"
+    language-code="en"
+  ></df-messenger>
+
+</body>
+</html>

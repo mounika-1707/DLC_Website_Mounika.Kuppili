@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital Tools Tutorials</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom right, #e5d4f5, #f8f1ff);
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Fixed Top Group */
+    .fixed-top-group {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .top-header {
+      background-color: #6a1b9a;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;
+      font-size: 14px;
+    }
+
+    nav {
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav .tagline {
+      font-size: 20px;
+      font-weight: bold;
+      color: #f06292;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #6a1b9a;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      color: #f06292;
+    }
+
+    nav ul li a i {
+      margin-right: 6px;
+    }
+
+    /* Responsive nav */
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .controls input {
+        width: 100%;
+      }
+    }
+
+    /* Controls Search */
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 100px 20px 20px;
+      gap: 10px;
+    }
+
+    .controls input {
+      padding: 8px;
+      font-size: 16px;
+      width: 200px;
+    }
+
+    .controls button {
+      background: #7a4d9b;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .controls button:hover {
+      background: #592d7f;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card i {
+      font-size: 40px;
+      margin-bottom: 10px;
+      color: #7a4d9b;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+    }
+
+    .card a {
+      display: block;
+      margin-top: 10px;
+      color: #7a4d9b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer {
+      background-color: #7a4d9b;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed Header and Navbar -->
+  <div class="fixed-top-group">
+    <div class="top-header"><i class="fas fa-university me-2"></i> CollegeTips.in</div>
+    <nav>
+      <div class="tagline">Empowering Digital Literacy</div>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="tutorials.html"><i class="fas fa-chalkboard-teacher"></i> Tutorials</a></li>
+        <li><a href="chatbot.html"><i class="fas fa-robot"></i> AI Chat</a></li>
+        <li><a href="feedback.html"><i class="fas fa-comment-alt"></i> Feedback</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Search Controls -->
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="Search Tutorials...">
+    <button onclick="voiceSearch()" title="Voice Search"><i class="fas fa-microphone"></i></button>
+  </div>
+
+  <!-- Tutorials Section -->
+  <main>
+    <div class="card-container" id="tutorialCards">
+      <!-- Inserted Tutorial Cards Start -->
+      <div class="card" data-title="whatsapp"><i class="fab fa-whatsapp"></i><h3>WhatsApp</h3><a href="https://youtu.be/sghayXZ_RK0?si=nPuVUQRBj4fygsiP" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="paytm"><i class="fas fa-wallet"></i><h3>Paytm</h3><a href="https://youtu.be/NsjKR6YOup4?si=lMP80pVnWFmz_SQJ" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="google maps"><i class="fas fa-map-marked-alt"></i><h3>Google Maps</h3><a href="https://youtu.be/tui9hq9lfsU?si=kacvSB5rhf0DwVFi" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="zomato"><i class="fas fa-hamburger"></i><h3>Zomato</h3><a href="https://youtube.com/playlist?list=PLQO9UcGeB3ATuzL2wkQY3MDO-UFwEke0U&si=_LNyfrKCe6Q9LT1C" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="swiggy"><i class="fas fa-utensils"></i><h3>Swiggy</h3><a href="https://youtu.be/orOdajUOC6o?si=_v06r8sZrznEiOfA" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="ola"><i class="fas fa-taxi"></i><h3>Ola</h3><a href="https://youtu.be/T0CkUMUpmuM?si=JaHoeP2Gp1YM2vUF" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="uber"><i class="fas fa-car-side"></i><h3>Uber</h3><a href="https://youtu.be/D8HI7Bg4Dqw?si=7ITGOuWnwbhSY_3k" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="flipkart"><i class="fas fa-shopping-cart"></i><h3>Flipkart</h3><a href="https://youtu.be/kZQ7rSWIk34?si=PiusgimoXNDRvYjQ" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="amazon"><i class="fab fa-amazon"></i><h3>Amazon</h3><a href="https://youtu.be/iSvRIeYYNl4?si=v7BiGL8YQgBxyKPo" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="myntra"><i class="fas fa-tshirt"></i><h3>Myntra</h3><a href="https://youtu.be/16kTdciTlbo?si=s-p4UCDMIA5SRLBo" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="phonepe"><i class="fas fa-money-check-alt"></i><h3>PhonePe</h3><a href="https://youtu.be/EsmAFKKfwDQ?si=3eo3s3ixAkLUE6vj" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="gpay"><i class="fas fa-coins"></i><h3>Google Pay</h3><a href="https://youtu.be/-E8IQ8jekkQ?si=GofznHjiqOLUB7_t" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="netflix"><i class="fas fa-film"></i><h3>Netflix</h3><a href="https://youtu.be/Hg4lC_BIHss?si=4neRovnIzWHOQvJQ" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="prime video"><i class="fas fa-tv"></i><h3>Prime Video</h3><a href="https://youtu.be/7G7RyXzHMSM?si=w337UAfXH5znfvbj" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="youtube"><i class="fab fa-youtube"></i><h3>YouTube</h3><a href="https://youtu.be/KD4JiwyXpoc?si=n0cKV-md2GpTn28Q" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="truecaller"><i class="fas fa-phone-square-alt"></i><h3>Truecaller</h3><a href="https://youtu.be/Yt2uBtFEmdQ?si=9bS9QElL33sagKsP" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="gaana"><i class="fas fa-music"></i><h3>Gaana</h3><a href="https://youtu.be/QTaLhk53ZwA?si=MUPLovMV4tVj2qmJ" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="spotify"><i class="fab fa-spotify"></i><h3>Spotify</h3><a href="https://youtu.be/HMJZobMa4y4?si=Q-KwVxSCtNZNrIy4" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="instagram"><i class="fab fa-instagram"></i><h3>Instagram</h3><a href="https://youtu.be/2YSB468mn4M?si=LPW-lmLM36Cg8iGE" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="twitter"><i class="fab fa-twitter"></i><h3>Twitter</h3><a href="https://youtu.be/2YSB468mn4M?si=LPW-lmLM36Cg8iGE" target="_blank">Watch Tutorial</a></div>
+      <div class="card" data-title="facebook"><i class="fab fa-facebook-square"></i><h3>Facebook</h3><a href="https://youtu.be/xu8rh9Ref4Y?si=RbXQA4TRJuwVQTAk" target="_blank">Watch Tutorial</a></div>
+      <!-- Inserted Tutorial Cards End -->
+    </div>
+  </main>
+
+  <div class="footer">
+    &copy; 2025 CollegeTips.in | All rights reserved
+  </div>
+
+  <script>
+    function voiceSearch() {
+      const recognition = new(window.SpeechRecognition || window.webkitSpeechRecognition)();
+      recognition.lang = 'en-IN';
+      recognition.start();
+      recognition.onresult = (e) => {
+        document.getElementById('searchInput').value = e.results[0][0].transcript;
+        filterCards();
+      }
+    }
+
+    document.getElementById('searchInput').addEventListener('input', filterCards);
+
+    function filterCards() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const title = card.getAttribute('data-title');
+        card.style.display = title.includes(query) ? 'block' : 'none';
+      });
+    }
+    
+const firebaseConfig = {
+  apiKey: "AIzaSyCL4BouK3rDB4Mvg7z-xhqlagKJuCnshTg",
+  authDomain: "dlc-website-41e57.firebaseapp.com",
+  projectId: "dlc-website-41e57",
+  storageBucket: "dlc-website-41e57.firebasestorage.app",
+  messagingSenderId: "546749782741",
+  appId: "1:546749782741:web:299cf935c8de0b3001a05c"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+const form = document.getElementById('feedback-form');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const message = document.getElementById('message').value;
+  await db.collection('feedback').add({ name, message, timestamp: new Date() });
+  alert('Thank you for your feedback!');
+  form.reset();
+});
+
+  </script>
+</body>
+</html>

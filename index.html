@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DigiBuddy | CollegeTips.in</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      scroll-behavior: smooth;
+      background: linear-gradient(to right, #e0f7fa, #fce4ec);
+      color: #333;
+    }
+
+    .fixed-top-group {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1050;
+}
+
+.top-header {
+  background-color: #6a1b9a;
+  color: white;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+.navbar {
+  background-color: #fff !important;
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+  padding: 12px 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s;
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+  color: #f06292;
+  white-space: nowrap;
+}
+
+.navbar-toggler {
+  font-size: 22px;
+  border: none;
+  color: #6a1b9a;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin-bottom: 0;
+}
+
+.nav-links .nav-link {
+  text-decoration: none;
+  color: #6a1b9a;
+  font-weight: 500;
+}
+
+.nav-links .nav-link:hover {
+  color: #f06292;
+}
+
+
+.nav-links.show {
+  display: flex;
+}
+
+
+    section {
+      padding: 120px 20px 80px;
+      min-height: 100vh;
+      clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 95%);
+      animation: fadeInUp 1s ease-in-out both;
+    }
+
+    .tab1 {
+      background: linear-gradient(135deg, #f3e5f5, #fff3e0);
+    }
+
+    .tab2 {
+      background: linear-gradient(135deg, #f8bbd0, #ede7f6);
+    }
+
+    .tab3, .tab4, .tab5 {
+      background: linear-gradient(135deg, #f3e5f5, #fff3e0);
+    }
+
+    .content-box h2 {
+      font-size: 36px;
+      color: #4a148c;
+    }
+
+    .join-btn {
+      background: linear-gradient(to right, #ff758c, #ff7eb3);
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-weight: bold;
+      margin-top: 20px;
+      transition: 0.3s ease-in-out;
+    }
+
+    .join-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(255, 120, 180, 0.6);
+    }
+
+    .hero-video video {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 15px;
+      object-fit: cover;
+      aspect-ratio: 1/1;
+    }
+
+    .pinterest-grid {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .pinterest-grid img {
+      width: 250px;
+      height: 250px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .quote-section {
+      text-align: center;
+      font-size: 24px;
+      font-style: italic;
+      color: #6a1b9a;
+    }
+
+    .testimonial-section h2 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #4a148c;
+    }
+
+    .testimonial-text {
+      font-size: 18px;
+      font-weight: bold;
+      color: #4a148c;
+    }
+
+    .carousel-item {
+      padding: 30px;
+      text-align: center;
+      color:#4a148c
+    }
+
+    .tab3 img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+
+    .tab4 .card img {
+      width: 100%;
+      aspect-ratio: 603/904;
+      object-fit: cover;
+    }
+
+    .tab5 .card img {
+      width: 100%;
+      aspect-ratio: 583/546;
+      object-fit: cover;
+    }
+
+    .tab4 .card, .tab5 .card {
+      transition: transform 0.3s ease;
+    }
+
+    .tab4 .card:hover, .tab5 .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    footer {
+      background-color: #4a148c;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: white;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      color: #f06292;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .pinterest-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .tab4 .col-md-3, .tab5 .col-md-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+  
+           
+      <div class="fixed-top-group">
+    <div class="top-header"><i class="fas fa-university me-2"></i>CollegeTips.in</div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Empowering Digital Literacy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav nav-links">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tutorials.html"><i class="fas fa-video"></i> Tutorials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="chatbot.html"><i class="fas fa-robot"></i> AI Chat</a></li>
+                    <li class="nav-item"><a class="nav-link" href="feedback.html"><i class="fas fa-comment-dots"></i> Feedback</a></li>
+                </ul>
+            </div>
+            
+        </div>
+    </nav>
+</div>
+
+
+
+  </div>
+  <!-- Tab 1 -->
+  <section class="tab1" id="tab1">
+    <div class="container pt-5">
+      <div class="row align-items-center">
+        <div class="col-md-6 content-box">
+          <h2>Unlock Digital Tools!!!</h2>
+          <p>Help your parents and elders master the digital tools.</p>
+          <p>
+            <p>Struggling to find the best gift for your parents??</p>
+            <h4>🎉 Here's the Best Gift Ever!</h4>
+            Give them something exciting, useful, and full of fun —
+         <p>The CollegeTips Digital Literacy Program
+          Specially designed for parents and elder family members.</p>
+          <h4>📱 What’s Inside?</h4> 
+          <p>Easy tutorials on using digital apps,
+
+Fun lessons on tweets, memes & tech trends,
+
+Dance, communication, fitness & fashion tips!</p>
+<h4>❤️ Why This Matters</h4>
+<p>Empower your parents to confidently navigate the digital world and enjoy a happening life!</p>
+<h4>🎁 Make It Count</h4>
+<p>Don’t wait — wrap this smart, thoughtful gift today.
+It’s simple, meaningful, and totally worth it!</p>
+          </p>
+          <a href="register.html"><button class="join-btn">Join Now</button></a>
+        </div>
+        <div class="col-md-6 text-center hero-video">
+          <video autoplay loop muted playsinline>
+            <source src="cartoon1.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <div class="pinterest-grid mt-4">
+        <img src="cartoon3.jpg" alt="Tutorial 1" />
+        <img src="cartoon22.jpg" alt="Tutorial 2" />
+        <img src="cartoon4.jpg" alt="Tutorial 3" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab 2 -->
+  <section class="tab2" id="tab2">
+    <div class="container">
+      <div class="quote-section mb-4">“Empowering generations, one click at a time.”</div>
+      <div class="row align-items-center mb-4">
+        <div class="col-md-6 text-center hero-video">
+          <video autoplay loop muted playsinline>
+            <source src="cartoon5.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="col-md-6 content-box">
+          <h2>💡 What’s Inside the Program?</h2>
+          <p>Whether it's video calling your kids or booking an Uber — learn every digital step easily with us. Here's what they will learn: </p>
+          <h4>📲 How to Use Everyday Apps</h4>
+          <p>Zomato, Ola, Google Maps & more — from ordering food to booking rides!</p>
+          <h4>🌐 Trending Tech Terms</h4>
+          <p>What’s a tweet? What’s going viral? All explained simply!</p>
+          <h4>🛡️ Digital Safety</h4>
+          <p>Smart tips to avoid online and banking frauds.</p>
+          <h4>💃 Lifestyle & Wellness Tutorials</h4>
+          <p>Fun and practical sessions on health, fitness, dance, fashion, and communication!
+
+…and a lot more — all curated especially for parents & elders.
+
+</p>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-md-6 content-box">
+          <h2>📲 How Does It Work?</h2>
+          <p>No Zoom? No problem!</p>
+          <p>We bring the learning directly to WhatsApp — the platform they already know and love.</p>
+          <h4>🎥 Audio & Video Tutorials</h4>
+          <p>Delivered straight to their WhatsApp, in Hindi, English, or any preferred language.</p>
+          <p>🌟 Learn at their own pace, from the comfort of their own phone — simple, safe & smart.</p>
+        </div>
+        <div class="col-md-6 text-center hero-video">
+          <video autoplay loop muted playsinline>
+            <source src="cartoon6.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab 3 -->
+  <section class="tab3" id="tab3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 content-box">
+          <h2>Your Personal AI Assistant</h2>
+          <p>Ask anything, anytime. Our smart chatbot will guide you through digital tasks in simple steps.</p>
+          <h4>💰 How Much Does this Course Cost?</h4>
+          <h1>Just ₹499 for the entire program!</h1>
+          <p>Yes, you heard it right — that’s less than the price of a movie night with snacks! 🎬🍿</p>
+          <h4>❓ But Why Isn’t It Free?</h4>
+          <p>🔹Ever completed a free online course, start to finish?</p>
+          <p>🔹Ever spent hours on YouTube trying to learn apps, only to end up confused?</p>
+          <p>🔹Found one single platform that explains apps, tech trends, memes, and digital safety — all in one place?</p>
+          <p>Exactly. Most free resources leave you halfway.
+<p>But this program is different — structured, personalized, and made especially for parents.</p>
+<p>A small price for a big impact on their confidence and independence.</p>
+
+</p>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="cartoon7.jpg" class="img-fluid rounded" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab 4 -->
+  <section class="tab4" id="tab4">
+    <div class="container">
+      <h2 class="text-center mb-4" style="color: var(--bs-heading-color);">📲Course Insights..</h2>
+      <div class="row g-3">
+        <div class="col-md-3 col-sm-6"><div class="card"><img src="cartoon8.jpg"></div></div>
+        <div class="col-md-3 col-sm-6"><div class="card"><img src="cartoon9.jpg"></div></div>
+        <div class="col-md-3 col-sm-6"><div class="card"><img src="cartoon10.jpg"></div></div>
+        <div class="col-md-3 col-sm-6"><div class="card"><img src="cartoon11.jpg"></div></div>
+        <div class="col-md-3 col-sm-6"><div class="card"><img src="cartoon12.jpg"></div></div>
+        <div class="col-md-3 col-sm-6"><div class="card"><img src="cartoon13.jpg"></div></div>
+        <div class="col-md-3 col-sm-6"><div class="card"><img src="cartoon14.jpg"></div></div>
+        <div class="col-md-3 col-sm-6"><div class="card"><img src="cartoon15.jpg"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab 5 -->
+  <section class="tab5" id="tab5">
+    <div class="container">
+      <h2 class="text-center mb-4 " style="color: var(--bs-heading-color);">📲You'll Learn Through..</h2>
+      <div class="row g-3">
+        <div class="col-md-3 col-sm-6"><div class="card"><img src="cartoon16.jpg"></div></div>
+        <div class="col-md-3 col-sm-6"><div class="card"><img src="cartoon17.jpg"></div></div>
+        <div class="col-md-3 col-sm-6"><div class="card"><img src="cartoon18.jpg"></div></div>
+        <div class="col-md-3 col-sm-6"><div class="card"><img src="cartoon19.jpg"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab 6 -->
+  <section class="tab2" id="tab6">
+    <div class="container testimonial-section">
+      <h2>What Parents Say</h2>
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner text-center">
+          <div class="carousel-item active">
+            <p class="testimonial-text">“Thanks to DigiBuddy, I now video call my children daily!”</p>
+            <small>- Ramesh, 62</small>
+          </div>
+          <div class="carousel-item">
+            <p class="testimonial-text">“Paying electricity bills is now a breeze!”</p>
+            <small>- Sushma, 59</small>
+          </div>
+          <div class="carousel-item">
+            <p class="testimonial-text">“Google Maps no longer confuses me!”</p>
+            <small>- Anil, 66</small>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev" style="color: #4a148c;">
+          <span class="carousel-control-prev-icon" style="color: #4a148c;"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next" style="color: #4a148c;">
+          <span class="carousel-control-next-icon" style="color: #4a148c;" ></span>
+        </button>
+      </div>
+    </div>
+    <footer>
+      <p>&copy; 2025 CollegeTips.in | Empowering Digital Literacy</p>
+      <p>Contact: 7024577333 | Mail: mail@collegetips.in</p>
+      <div>
+        <a href="https://www.instagram.com/collegetips.in/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/channel/UCcbf5sZkxsBGYj9Dr7K9QEA" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.facebook.com/collegetips.in/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com/CollegeTips_in" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+    </footer>
+  </section>
+<script>
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+
+    function loadTheme() {
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+    }
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+}
+
+function loadTheme() {
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+}
+
+window.onload = loadTheme;
+
+    function toggleMenu() {
+        document.getElementById('navbarNav').classList.toggle('show');
+    }
+
+    window.onload = loadTheme;
+    
+const firebaseConfig = {
+  apiKey: "AIzaSyCL4BouK3rDB4Mvg7z-xhqlagKJuCnshTg",
+  authDomain: "dlc-website-41e57.firebaseapp.com",
+  projectId: "dlc-website-41e57",
+  storageBucket: "dlc-website-41e57.firebasestorage.app",
+  messagingSenderId: "546749782741",
+  appId: "1:546749782741:web:299cf935c8de0b3001a05c"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+const form = document.getElementById('feedback-form');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const message = document.getElementById('message').value;
+  await db.collection('feedback').add({ name, message, timestamp: new Date() });
+  alert('Thank you for your feedback!');
+  form.reset();
+});
+
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

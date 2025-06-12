@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register | CollegeTips.in</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #f9f3ff, #e9d4fc);
+      color: #333;
+    }
+
+    /* Top Heading */
+    .heading-bar {
+      background-color: #7a4d9b;
+      color: white;
+      padding: 20px 10px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .heading-bar h1 {
+      margin: 0;
+      font-size: 24px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .heading-bar::before {
+      content: "\f109";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      font-size: 120px;
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.1);
+      z-index: 1;
+    }
+
+    /* Form Container */
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .container h2 {
+      text-align: center;
+      color: #7a4d9b;
+      margin-bottom: 25px;
+    }
+
+    form label {
+      font-weight: 600;
+      margin-top: 15px;
+      display: block;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-top: 5px;
+    }
+
+    .payment-section {
+      background: #f4eaff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+      text-align: center;
+      border: 1px solid #d4bbf5;
+    }
+
+    .payment-section h3 {
+      margin: 0;
+      color: #7a4d9b;
+      font-size: 20px;
+    }
+
+    .payment-section p {
+      margin: 10px 0;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #7a4d9b;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #5e3480;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 30px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- CollegeTips Heading Bar -->
+<div class="heading-bar">
+  <h1><i class="fas fa-laptop-code"></i> CollegeTips.in - Empowering Digital Literacy</h1>
+</div>
+
+<!-- Registration Form -->
+<div class="container">
+  <h2>Register Now</h2>
+  <form id="registrationForm" onsubmit="submitForm(event)">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" required>
+
+    <label for="whatsapp">WhatsApp Number</label>
+    <input type="tel" id="whatsapp" pattern="[0-9]{10}" required>
+
+    <label for="age">Age</label>
+    <input type="number" id="age" min="10" max="100" required>
+
+    <label for="city">City</label>
+    <input type="text" id="city" required>
+
+    <div class="payment-section">
+      <h3>Program Fee</h3>
+      <p>₹499 Only</p>
+      <!-- Later integrate payment gateway here -->
+    </div>
+
+    <button type="submit"><i class="fas fa-credit-card"></i> Pay ₹499 & Register</button>
+  </form>
+</div>
+
+<script>
+  function submitForm(event) {
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    alert(`Thank you, ${name}! Registration successful. Proceeding to payment...`);
+    
+    // Add real payment integration here (e.g. Razorpay, Paytm, PhonePe, etc.)
+    // Example redirect: window.location.href = 'payment-gateway-link';
+  }
+  
+const firebaseConfig = {
+  apiKey: "AIzaSyCL4BouK3rDB4Mvg7z-xhqlagKJuCnshTg",
+  authDomain: "dlc-website-41e57.firebaseapp.com",
+  projectId: "dlc-website-41e57",
+  storageBucket: "dlc-website-41e57.firebasestorage.app",
+  messagingSenderId: "546749782741",
+  appId: "1:546749782741:web:299cf935c8de0b3001a05c"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+const form = document.getElementById('feedback-form');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const message = document.getElementById('message').value;
+  await db.collection('feedback').add({ name, message, timestamp: new Date() });
+  alert('Thank you for your feedback!');
+  form.reset();
+});
+
+</script>
+
+</body>
+</html>
